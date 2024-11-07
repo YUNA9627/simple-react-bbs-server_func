@@ -70,7 +70,7 @@ app.post('/insert',upload.single('image'), (req, res) => {
 
 app.get('/detail', (req, res) => {
   const id = req.query.id; // req안에 객체 방식으로 되어있는 것들 중 get방식의 id
-  const sql = "SELECT BOARD_TITLE, BOARD_CONTENT FROM board WHERE BOARD_ID = ?";
+  const sql = "SELECT BOARD_TITLE, BOARD_CONTENT, IMAGE_PATH FROM board WHERE BOARD_ID = ?";
   db.query(sql, [id], (err, result) => { // id는 ?의 값으로 들어감
     if (err) throw err;
     res.send(result);
